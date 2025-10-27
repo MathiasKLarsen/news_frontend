@@ -17,12 +17,14 @@ const Navbar = () => {
   return (
     <nav>
       <div className="h-20 flex items-center justify-between px-5 bg-black text-white">
-        <Link
-          href={"/"}
-          className="font-bold text-3xl"
-        >
-          ..news
-        </Link>
+        <h1>
+          <Link
+            href={"/"}
+            className="font-bold text-3xl"
+          >
+            ..news
+          </Link>
+        </h1>
 
         <ul className="hidden md:flex space-x-10 font-medium">
           {menuItems.map((item, index) => (
@@ -38,7 +40,11 @@ const Navbar = () => {
         </ul>
 
         <div>
-          Søg
+          <Link
+            href="/login"
+          >
+            Login
+          </Link>
         </div>
         
         <button

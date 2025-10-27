@@ -7,9 +7,9 @@ export default function Home() {
   return (
     <>
       <Hero />
-      {/* <Seneste />
+      <Seneste />
       <Video />
-      <Podcast /> */}
+      <Podcast />
     </>
   );
 }

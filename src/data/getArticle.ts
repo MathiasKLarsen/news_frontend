@@ -1,3 +1,5 @@
+import { env } from "process";
+
 export type Article = {
   _id: string;
   title: string;
@@ -29,10 +31,21 @@ export type ContentBody = {
   headline?: string; 
 }
 
-const apiURL = "http://localhost:3001/article"
+const apiURL = `${process.env.NEXT_PUBLIC_API_URL}/article`
 
-export async function getArticle(): Promise<Content[]> {
-    const res = await fetch(`${apiURL}`);
-    if (!res.ok) throw new Error("Failed to fetch article");
-    return res.json();
+export async function getArticle(): Promise<Article[]> {
+  try {
+    const res = await fetch(apiURL);
+
+    if (!res.ok) {
+      throw new Error(`Failed to fetch article: ${res.statusText}`);
+    }
+
+    const data = await res.json();
+
+    return data as Article[];
+  } catch (error) {
+    console.error("Error fetching article:", error);
+    throw new Error("Error fetching article");
+  }
 }
