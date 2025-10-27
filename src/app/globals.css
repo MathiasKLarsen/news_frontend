@@ -1,26 +1,28 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --font-playfair: var(--font-playfair);
+  --font-themify: var(--font-themify);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  html {
+    @apply scroll-smooth;
   }
+  body {
+    @apply font-themify;
+  }
+  strong, b {
+    @apply font-normal;
+  }
+  body:has(#modal) {
+    @apply overflow-hidden;
+  }
+  .admin-title {
+  text-align: center;
+  font-size: 1.875rem; /* equivalent to text-3xl in Tailwind */
+  font-weight: 700;    /* equivalent to font-bold */
+  margin-bottom: 1.5rem; /* equivalent to mb-6 */
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
 }
