@@ -1,21 +1,17 @@
 import type { Metadata } from "next";
-// import { Playfair_Display } from "next/font/google";
-// import localFont from "next/font/local";
+import { Quicksand } from "next/font/google";
 import "./globals.css";
 
-// const playfair = Playfair_Display({
-//   subsets: ["latin"],
-//   variable: "--font-playfair",
-// });
-
-// const themify = localFont({
-//   src: "../../public/Fonts/themify.woff",
-//   variable: "--font-themify",
-// });
+const quicksand = Quicksand({
+  subsets: ["latin"],
+  weight: ["400", "700"], // Example weights (regular and bold)
+  display: "swap",
+  fallback: ["sans-serif"],
+});
 
 export const metadata: Metadata = {
-  title: "Leospa",
-  description: "A simple and elegant spa booking website",
+  title: "News",
+  description: "News website learn about whats going on around the world",
 };
 
 export default function RootLayout({
@@ -24,8 +20,6 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html /* className={`${themify.variable} ${playfair.variable}`}*/ lang="en">
-      {children}
-    </html>
+    <html className={`${quicksand.className}`} lang="en">{children}</html>
   );
 }

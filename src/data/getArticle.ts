@@ -1,5 +1,3 @@
-import { env } from "process";
-
 export type Article = {
   _id: string;
   title: string;

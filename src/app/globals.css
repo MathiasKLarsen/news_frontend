@@ -12,17 +12,17 @@
   body {
     @apply font-themify;
   }
-  strong, b {
+  strong,
+  b {
     @apply font-normal;
   }
   body:has(#modal) {
     @apply overflow-hidden;
   }
   .admin-title {
-  text-align: center;
-  font-size: 1.875rem; /* equivalent to text-3xl in Tailwind */
-  font-weight: 700;    /* equivalent to font-bold */
-  margin-bottom: 1.5rem; /* equivalent to mb-6 */
-}
-
+    text-align: center;
+    font-size: 1.875rem; /* equivalent to text-3xl in Tailwind */
+    font-weight: 700; /* equivalent to font-bold */
+    margin-bottom: 1.5rem; /* equivalent to mb-6 */
+  }
 }
