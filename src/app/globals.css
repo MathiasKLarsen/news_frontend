@@ -25,4 +25,10 @@
     font-weight: 700; /* equivalent to font-bold */
     margin-bottom: 1.5rem; /* equivalent to mb-6 */
   }
+  .yellow {
+    background-color: #d79d00;
+  }
+  .cyan {
+    background-color: #00bae8;
+  }
 }

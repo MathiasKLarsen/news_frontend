@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { getPodcast, Podcast as PodcastType } from "@/data/getPodcast";
-import PodcastSlider from "@/Components/PodcastSlider"; // Import the PodcastSlider component
+import PodcastSlider from "@/Components/podcast/PodcastSlider"; // Import the PodcastSlider component
 import { FaArrowRight } from "react-icons/fa";
 
 const PodcastFetcher = () => {
@@ -25,7 +25,7 @@ const PodcastFetcher = () => {
     <section className="max-w-[1000px] mx-auto justify-center px-5 md:px-0">
       {/* Section Title */}
       <div className="flex justify-between items-center">
-        <h2 className="text-4xl font-bold mb-10">Podcast</h2>
+        <h2 className="text-4xl font-bold mb-4">Podcast</h2>
         <button className="text-yellow-500 hover:text-yellow-600 flex items-center gap-1 font-medium text-xl">
           Vis mere<span><FaArrowRight /></span>
         </button>

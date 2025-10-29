@@ -38,7 +38,12 @@ export async function PostLogin(prevState: unknown, formData: FormData) {
 export async function Logout() {
   const cookie = await cookies();
 
-  const res = await fetch("http://localhost:5029/login/logout");
+  const res = await fetch("http://localhost:3001/auth/logout", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
 
   if (!res.ok) {
     console.error("Something went wrong..");

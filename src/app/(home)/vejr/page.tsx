@@ -1,9 +1,16 @@
-import React from 'react'
+import WeatherHero from "@/Components/vejr/WeatherHero";
+import WeatherCard from "@/Components/vejr/WeatherCard";
+import WeatherVideo from "@/Components/vejr/WeatherVideo";
 
-const page = () => {
+const Vejr = () => {
+
   return (
-    <div>vejr</div>
-  )
-}
+    <section className="max-w-[1000px] space-y-5 mx-auto justify-center px-5 md:px-0">
+      <WeatherHero />
+      <WeatherCard />
+      <WeatherVideo />
+    </section>
+  );
+};
 
-export default page
+export default Vejr;

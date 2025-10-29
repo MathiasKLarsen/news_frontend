@@ -9,9 +9,7 @@ export default function RootLayout({
   return (
     <body className="flex flex-col gap-y-16">
       <Navbar />
-      <main className="space-y-32 mb-12">
-        {children}
-      </main>
+      <main className="space-y-32 mb-12">{children}</main>
       <Footer />
     </body>
   );

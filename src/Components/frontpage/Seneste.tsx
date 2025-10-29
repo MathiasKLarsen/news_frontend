@@ -6,8 +6,8 @@ const Seneste = async () => {
 
   return (
     <section className="max-w-[1000px] mx-auto justify-center px-5 md:px-0">
-      <div className="flex justify-between items-center mb-8">
-        <h2 className="text-4xl font-bold mb-10">Seneste</h2>
+      <div className="flex justify-between items-center mb-4">
+        <h2 className="text-4xl font-bold">Seneste</h2>
         <button className="text-yellow-500 hover:text-yellow-600 flex items-center gap-1 font-medium text-xl">
           Vis mere
           <span>

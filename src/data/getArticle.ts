@@ -47,3 +47,20 @@ export async function getArticle(): Promise<Article[]> {
     throw new Error("Error fetching article");
   }
 }
+
+export async function getArticleByWeather(): Promise<Article[]> {
+  try {
+    const res = await fetch(`${apiURL}/section/vejr`);
+
+    if (!res.ok) {
+      throw new Error(`Failed to fetch article: ${res.statusText}`);
+    }
+
+    const data = await res.json();
+
+    return data as Article[];
+  } catch (error) {
+    console.error("Error fetching article:", error);
+    throw new Error("Error fetching article");
+  }
+}
