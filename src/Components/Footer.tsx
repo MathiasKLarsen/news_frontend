@@ -1,6 +1,11 @@
-import Link from "next/link";
+"use client";
+
+import { useState } from "react";
+import ContactModal from "@/Components/ContactModal"; // Import Modal component
 
 const Footer = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   return (
     <footer className="flex flex-col py-2 bg-black text-white">
       <section className="max-w-[1000px] px-5 md:px-0 md:gap-x-26 gap-y-10 mx-auto mb-10 flex justify-between flex-wrap">
@@ -12,13 +17,16 @@ const Footer = () => {
             <li>Internationalt</li>
             <li>Sport</li>
             <li>Vejret</li>
-            <Link href="/contact" className="hover:text-gray-400 transition">
+            <button
+              onClick={() => setIsModalOpen(true)} // Open the modal when clicked
+              className="hover:text-gray-400 transition cursor-pointer"
+            >
               <li>Contact</li>
-            </Link>
+            </button>
           </ul>
         </div>
 
-        {/* Second Column */}
+        {/* Other Columns */}
         <div className="font-semibold">
           <h3 className="text-2xl font-semibold mb-4">Lorem, ipsum dolor.</h3>
           <p className="w-50">
@@ -28,7 +36,6 @@ const Footer = () => {
           </p>
         </div>
 
-        {/* Third Column */}
         <div className="font-semibold">
           <h3 className="text-2xl font-semibold mb-4">Lorem, ipsum dolor.</h3>
           <p className="w-50">
@@ -38,7 +45,6 @@ const Footer = () => {
           </p>
         </div>
 
-        {/* Fourth Column */}
         <div className="font-semibold">
           <h3 className="text-2xl font-semibold mb-4">Om NEWS</h3>
           <ul>
@@ -50,11 +56,13 @@ const Footer = () => {
             <li>Privatlivspolitik</li>
           </ul>
         </div>
-        
       </section>
       <section className="flex py-5 justify-center border-t-2">
         <p>copyright &copy; 2025 | TLF: 12 34 56 78</p>
       </section>
+
+      {/* Modal Component */}
+      <ContactModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </footer>
   );
 };

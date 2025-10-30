@@ -8,23 +8,11 @@ const schema = yup.object().shape({
     .string()
     .email("Invalid email format")
     .required("A valid email is required"),
-  phone: yup
-    .string()
-    .matches(/^[0-9+\-()\s]+$/, "Enter a valid phone number")
-    .required("Phone number is required"),
-  service: yup
-    .string()
-    .required("Please select a service"),
-  datetime: yup
-    .string()
-    .required("Please select a date and time"),
+  subject: yup.string().required("Please enter a subject"),
   message: yup
     .string()
     .required("Message is required")
     .min(10, "Message must be at least 10 characters long"),
-  notes: yup
-    .string()
-    .optional(),
 });
 
 export const useYupForm = () => {
@@ -32,10 +20,16 @@ export const useYupForm = () => {
     register,
     handleSubmit,
     reset,
-    formState: { errors }
+    formState, // Include formState here
   } = useForm({
-    resolver: yupResolver(schema)
+    resolver: yupResolver(schema),
   });
 
-  return { register, handleSubmit, reset, errors };
+  return {
+    register,
+    handleSubmit,
+    reset,
+    errors: formState.errors, // Make sure to return the errors from formState
+    formState, // Return formState to allow direct access
+  };
 };

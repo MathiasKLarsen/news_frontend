@@ -10,7 +10,7 @@ const page = async ({ params }: { params: Promise<{ id: string }> }) => {
   });
 
   if (!res.ok) {
-    throw new Error("Kunne ikke hente produktet");
+    throw new Error("Kunne ikke hente nyheds siden");
   }
 
   const article: Article = await res.json();

@@ -4,8 +4,6 @@ import "./globals.css";
 
 const quicksand = Quicksand({
   subsets: ["latin"],
-  weight: ["400", "700"], // Example weights (regular and bold)
-  display: "swap",
   fallback: ["sans-serif"],
 });
 

@@ -6,10 +6,10 @@ import SliderPodcast from "@/Components/frontpage/Podcast";
 export default function Home() {
   return (
     <>
-      <Hero />
+      {/* <Hero />
       <Seneste />
       <Video />
-      <SliderPodcast />
+      <SliderPodcast /> */}
     </>
   );
 }

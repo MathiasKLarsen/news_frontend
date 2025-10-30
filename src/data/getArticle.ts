@@ -64,3 +64,32 @@ export async function getArticleByWeather(): Promise<Article[]> {
     throw new Error("Error fetching article");
   }
 }
+
+export async function createArticle(data: FormData): Promise<Article[]> {
+  const res = await fetch(`${apiURL}/add`, {
+    method: "POST",
+    body: data,
+  });
+
+  if (!res.ok) throw new Error("Failed to create Podcast");
+  return res.json();
+}
+
+export async function updateArticle(id: string, data: FormData): Promise<Article[]> {
+  const res = await fetch(`${apiURL}/update/${id}`, {
+    method: "PUT",
+    body: data,
+  });
+
+  if (!res.ok) throw new Error("Failed to update Podcast");
+  return res.json();
+}
+
+export async function deleteArticle(id: string): Promise<{ message: string }> {
+  const res = await fetch(`${apiURL}/delete/${id}`, {
+    method: "DELETE",
+  });
+
+  if (!res.ok) throw new Error("Failed to delete Podcast");
+  return res.json();
+}

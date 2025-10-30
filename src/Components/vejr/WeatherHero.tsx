@@ -1,7 +1,7 @@
-import { getArticle } from "@/data/getArticle";
+import { getArticleByWeather } from "@/data/getArticle";
 
 const WeatherHero = async () => {
-  const articleData = await getArticle();
+  const articleData = await getArticleByWeather();
 
   const firstSlice = articleData.slice(0, 1);
   const secondSlice = articleData.slice(1, 3);
