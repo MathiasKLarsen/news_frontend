@@ -48,20 +48,20 @@ const PodcastSlider = ({ podcasts }: PodcastSliderProps) => {
       </figure>
 
       {/* Navigation Buttons */}
-      <div className="relative flex justify-center items-center space-x-5 my-4">
+      <div className="relative flex justify-center items-center gap-x-5 my-4">
         <button
           onClick={prevSlide}
           aria-label="Previous slide"
           className="bg-white text-black rounded-full p-2 hover:bg-gray-200 z-10"
         >
-          <IoIosArrowDropleft />
+          <IoIosArrowDropleft size={30} />
         </button>
         <button
           onClick={nextSlide}
           aria-label="Next slide"
           className="bg-white text-black rounded-full p-2 hover:bg-gray-200 z-10"
         >
-          <IoIosArrowDropright />
+          <IoIosArrowDropright size={30} />
         </button>
       </div>
     </section>

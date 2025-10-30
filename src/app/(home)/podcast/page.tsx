@@ -52,7 +52,7 @@ const PodcastSide = () => {
             />
 
             {/* Yellow Box */}
-            <div className="absolute bottom-4 right-4 yellow p-6 rounded-lg shadow-md w-[350px] h-[200px]">
+            <div className="absolute bottom-4 right-4 bg-[#d79d00] p-6 rounded-lg shadow-md w-[350px] h-[200px]">
               {/* Empty Text Box inside the yellow box */}
               <p className="text-white text-5xl font-semibold">Lorem ipsum dolor sit.</p>
             </div>
