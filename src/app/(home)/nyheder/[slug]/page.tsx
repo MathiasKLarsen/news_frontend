@@ -1,19 +1,14 @@
-import { Article } from "@/data/getArticle";
+import { getArticleByID } from "@/data/getArticle";
 import Seneste from "@/Components/frontpage/Seneste";
 import Podcast from "@/Components/frontpage/Podcast";
 
-const page = async ({ params }: { params: Promise<{ id: string }> }) => {
-  const { id } = await params;
+interface PageProps {
+  params: Promise<{ slug: string }>
+}
 
-  const res = await fetch(`http://localhost:3001/article/slug/${id}`, {
-    next: { revalidate: 60 },
-  });
-
-  if (!res.ok) {
-    throw new Error("Kunne ikke hente nyheds siden");
-  }
-
-  const article: Article = await res.json();
+const page = async ({ params }: PageProps) => {
+  const { slug } = await params;
+  const article = await getArticleByID(slug); 
 
   return (
     <section className="max-w-[1000px] mx-auto justify-center px-5 md:px-0">
@@ -30,7 +25,7 @@ const page = async ({ params }: { params: Promise<{ id: string }> }) => {
         </small>
 
         {/* big img */}
-        {article.content.slice(2, 3).map((item, index) => (
+        {article.content.slice(2, 3).map(( item: any, index: number ) => (
           <figure key={index}>
             <img
               src={`http://localhost:3001/assets/images/${item.url}`}
@@ -42,8 +37,8 @@ const page = async ({ params }: { params: Promise<{ id: string }> }) => {
 
         {/* text */}
         <div className="mt-6">
-          {article.content.map((block, blockIndex) =>
-            block.contentbody.map((body, bodyIndex) => {
+          {article.content.map((block: any, blockIndex: any) =>
+            block.contentbody.map((body: any, bodyIndex: any) => {
               if (body.type === "paragraph") {
                 return (
                   <p

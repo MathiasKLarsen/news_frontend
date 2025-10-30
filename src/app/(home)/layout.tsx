@@ -7,10 +7,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <body className="flex flex-col gap-y-16">
+    <main className="flex flex-col gap-y-16">
       <Navbar />
       <main className="space-y-32 mb-12">{children}</main>
       <Footer />
-    </body>
+    </main>
   );
 }

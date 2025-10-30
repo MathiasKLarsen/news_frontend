@@ -10,7 +10,7 @@ export type Article = {
   tags: string[];
   author: string;
   date: string;
-}
+};
 
 export type Content = {
   _id: string;
@@ -21,15 +21,15 @@ export type Content = {
   caption?: string;
   thumbnail?: string;
   contentbody: ContentBody[];
-}
+};
 
 export type ContentBody = {
   type: string;
   text?: string;
-  headline?: string; 
-}
+  headline?: string;
+};
 
-const apiURL = `${process.env.NEXT_PUBLIC_API_URL}/article`
+const apiURL = `${process.env.NEXT_PUBLIC_API_URL}/article`;
 
 export async function getArticle(): Promise<Article[]> {
   try {
@@ -46,6 +46,15 @@ export async function getArticle(): Promise<Article[]> {
     console.error("Error fetching article:", error);
     throw new Error("Error fetching article");
   }
+}
+export async function getArticleByID(articleSlug: string) {
+  const res = await fetch(`${apiURL}/slug/${articleSlug}`);
+
+  if (!res.ok) {
+    throw new Error("Kunne ikke hente den bestemte nyheds side");
+  }
+
+  return res.json();
 }
 
 export async function getArticleByWeather(): Promise<Article[]> {
@@ -75,7 +84,10 @@ export async function createArticle(data: FormData): Promise<Article[]> {
   return res.json();
 }
 
-export async function updateArticle(id: string, data: FormData): Promise<Article[]> {
+export async function updateArticle(
+  id: string,
+  data: FormData
+): Promise<Article[]> {
   const res = await fetch(`${apiURL}/update/${id}`, {
     method: "PUT",
     body: data,

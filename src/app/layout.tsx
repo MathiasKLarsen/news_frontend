@@ -18,6 +18,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html className={`${quicksand.className}`} lang="en">{children}</html>
+    <html className={`${quicksand.className}`} lang="en">
+      <body>{children}</body>
+    </html>
   );
 }
