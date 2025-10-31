@@ -1,4 +1,5 @@
 import { getArticle } from "@/data/getArticle";
+import Link from "next/link";
 import { FaArrowRight } from "react-icons/fa";
 
 const Seneste = async () => {
@@ -18,22 +19,24 @@ const Seneste = async () => {
       <section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-5">
         {articleData.slice(5, 9).map((item, index) => (
           <div key={index} className="flex flex-col">
-            <figure>
-              <img
-                src={`http://localhost:3001/assets/images/${item.content[2].url}`}
-                alt={item.content[2].text}
-                className="w-full h-auto object-cover rounded-lg"
-              />
-            </figure>
-            <figcaption className="flex flex-col p-4">
-              <p className="text-sm line-clamp-2">{item.content[0].text}</p>
-              <p className="text-xs mt-2">
-                <span className="text-[#e89700] font-bold">
-                  {item.articleCategory}
-                </span>{" "}
-                |{new Date(item.publishedAt).getMinutes()} minutter siden
-              </p>
-            </figcaption>
+            <Link href={`/${item.articleCategory}/${item.slug}`}>
+              <figure>
+                <img
+                  src={`http://localhost:3001/assets/images/${item.content[2].url}`}
+                  alt={item.content[2].text}
+                  className="w-full h-auto object-cover rounded-lg"
+                />
+              </figure>
+              <figcaption className="flex flex-col p-4">
+                <p className="text-sm line-clamp-2">{item.content[0].text}</p>
+                <p className="text-xs mt-2">
+                  <span className="text-[#e89700] font-bold">
+                    {item.articleCategory}
+                  </span>{" "}
+                  |{new Date(item.publishedAt).getMinutes()} minutter siden
+                </p>
+              </figcaption>
+            </Link>
           </div>
         ))}
       </section>
