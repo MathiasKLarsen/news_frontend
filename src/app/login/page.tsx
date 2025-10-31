@@ -14,7 +14,7 @@ const AdminLogin = () => {
   })
 
   return (
-    <body className="min-h-screen flex items-center justify-center bg-neutral-800">
+    <section className="min-h-screen flex items-center justify-center bg-neutral-800">
       <div className="w-full max-w-md bg-neutral-900 p-8 rounded-lg shadow-lg">
         <h1 className="text-2xl font-semibold text-center mb-6 text-white">
           Admin Login
@@ -73,7 +73,7 @@ const AdminLogin = () => {
           </button>
         </form>
       </div>
-    </body>
+    </section>
   );
 };
 

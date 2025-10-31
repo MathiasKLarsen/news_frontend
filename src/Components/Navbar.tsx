@@ -39,13 +39,11 @@ const Navbar = () => {
           ))}
         </ul>
 
-        <div>
-          <Link
-            href="/login"
-          >
-            Login
-          </Link>
-        </div>
+        <input 
+          type="søg" 
+          placeholder="søg..."
+          className="hidden md:block px-3 py-1 rounded-2xl text-black bg-white"
+        />
         
         <button
           className="md:hidden text-3xl"
